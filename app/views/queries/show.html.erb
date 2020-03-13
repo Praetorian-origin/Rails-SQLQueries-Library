@@ -1,0 +1,67 @@
+
+<p>
+	<strong>Title:</strong>
+	<%= @query.title %>
+</p>
+
+<p>
+	<strong>Text:</strong>
+	<%= @query.text %>
+</p>
+
+
+<p>
+	<strong>Databases:</strong>
+	<%= @query.databases.map(&:name).join(', ') %>
+</p>
+
+
+
+
+	<% unless @array.blank? %>
+
+
+	<%	@array.each_with_index do |sub_array, index| %>
+
+<p><%=@array_dbs[index]%> :</p>
+<div class="table-responsive">
+	<table class="table">
+		
+	
+		<thead class="thead-light">
+			<tr>
+				<% @array_columns.each do |item| %>
+				<th>
+					<%= item %>
+				</th>
+				<% end %>
+			</tr>
+		</thead>
+		<%	sub_array.each do |array| %>
+		<tr>
+			<% array.each do |item| %>
+			<td>
+				<%=  item %>
+			</td>
+			<% end %>
+		</tr>
+		<%end%>
+	
+
+	</table> 
+
+</div>
+	<%end%>
+<br />
+	<%end%>
+<%= link_to 'Edit the query', edit_query_path(@query), class: "btn btn-warning"%>
+<%= link_to 'Back to all queries', queries_path, class: "btn btn-secondary" %>
+
+
+<%= link_to 'Launch Preview', query_path(@query) << '/preview',
+method: :launch_preview,
+class: "btn btn-primary" %>
+
+<%= link_to 'Export All', query_path(@query, :anchor => "export"),
+method: :export_all,
+class: "btn btn-primary" %>

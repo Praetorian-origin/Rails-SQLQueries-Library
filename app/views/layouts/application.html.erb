@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <title>SQLHelper</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <meta name="description" content="SQL Helper for blazing fast queries">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="SQL, Automatization, Export">
+  <meta http-equiv="X-UA-Comptaible" content="ie-edge">
+
+
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'https://code.jquery.com/jquery-3.4.1.slim.min.js'%>
+  <%= javascript_include_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'%>
+
+</head>
+
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom"> 
+    <%= link_to 'SQLHelper', {controller: "welcome", action: "index"}, class:"navbar-brand"%>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+         <%= link_to 'Home', {controller: "welcome", action: "index"}, class: "nav-link"  %> 
+       </li>
+       <li class="nav-item">
+         <%= link_to 'Queries', queries_path, class:"nav-link" %>
+       </li>
+
+
+      <li class="nav-item">
+        <%= link_to 'Machines', machines_path, class: "nav-link" %>
+      </li>
+
+      <li class="nav-item">
+        <%= link_to 'Databases', databases_path, class: "nav-link"%>
+      </li>
+
+             <li class="nav-item">
+        <a class="nav-link" href="#">Builder</a>
+      </li>
+
+
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid p-3">
+
+  <%= yield %>
+
+</div>
+</body>
+</html>

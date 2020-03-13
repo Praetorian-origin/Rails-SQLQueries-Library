@@ -1,0 +1,10 @@
+<h1>Edit Machine</h1>
+ 
+<%= render 'form'%>
+ 
+
+<%= link_to 'Delete', machine_path(@machine),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+<%= link_to 'Back to the list of all machines', machines_path, class: 'btn btn-secondary'%>

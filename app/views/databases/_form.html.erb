@@ -1,0 +1,34 @@
+<%= form_with model: @database, local: true do |form| %>
+ 
+  <% if @database.errors.any? %>
+    <div id="error_explanation", class="alert alert-danger">
+      <h2>
+        <%= pluralize(@database.errors.count, "error") %> prohibited
+        this query from being saved:
+      </h2>
+      <ul>
+        <% @database.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br />
+    <%= form.text_field :name, class: 'form-control' %>
+  </p>
+ 
+  <%= form.label :machine %><br /> 
+ <%= form.select :machine_id, Machine.all.collect {|machine| [machine.name, machine.id] },  {:include_hidden => false} %><br />
+
+
+
+
+
+
+  <p>
+    <%= form.submit class: 'btn btn-success' %>
+  </p>
+ 
+<% end %>

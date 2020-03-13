@@ -1,0 +1,32 @@
+<h1>List of Databases</h1>
+
+<div table="table_responsive">
+
+	<table class="table">
+		<thead class="thead-light">
+			<tr>
+				<th>Name</th>
+				<th>Is present on: </th> 
+				<th></th>
+				<th>Options</th>
+				<th></th>
+			</tr>
+
+		</thead>
+		<% @databases.each do |database| %>
+		<tr>
+			<th><%= database.name %></th>
+			<th><%= database.machine.try(:name) %></th>
+			<th></th>
+			<th><%= link_to 'Edit', edit_database_path(database), class: "btn btn-warning"%></th>
+			<th></th>
+		</tr>
+		<% end %>
+
+	</table>
+</div>
+
+
+<div class="text-center">
+	<%= link_to 'New Database', new_database_path, class: "btn btn-primary btn-lg ", role: "button" %>
+</div>

@@ -1,0 +1,66 @@
+
+
+<div class="row form-group">
+
+
+<div class="col">
+      <input class="form-control border border-dark" id="searchBar" type="search" placeholder="Search" aria-label="Search">
+    </div>
+
+
+<div class="col-{breakpoint}-auto">
+
+<%= link_to 'New query', new_query_path, class: "btn btn-primary btn-lg ", role: "button" %>
+</div>
+
+</div>
+
+
+
+<div table="table_responsive">
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th>Query Title</th>
+    <th>Query Text</th>
+    <th>Can be on databases</th>
+    <th></th>
+    <th></th>
+    <th>Options</th>
+    <th></th>
+  </tr>
+  </thead>
+ 
+ <tbody id="tbodyData">
+  <% @queries.each do |query| %>
+  
+    <tr>
+      <td ><%= query.title %></td>
+    <!--   <td class="query-text"><%= query.text %></td>  -->
+      <td class="query-text"><%= query.text.truncate(query.text.upcase.index('[DATABASE]') + 3) %></td> 
+
+       <td><%= query.databases.map(&:name).join(', ')  %></td>
+
+      <td><%= link_to  'More', query_path(query), class: "btn btn-primary" %></td>
+      <td><a tabindex="0" type="button" class="btn btn-dark btn-sm copy" data-toggle="popover" data-placement="top" data-content="Copied !">Copy</a></td>
+      <!-- <td><%= link_to 'Show', query_path(query) %></td>-->
+      <td><%= link_to 'Edit', edit_query_path(query), class: "btn btn-warning" %></td>
+        <td><%= link_to 'Delete', query_path(query), class: "btn btn-danger",
+              method: :delete,
+              data: { confirm: 'Are you sure?' }  %></td>
+    </tr>
+ 
+
+
+  <% end %>
+   </tbody>
+</table>
+</div>
+
+<%#= will_paginate @queries %>
+
+
+<!-- <%= link_to 'Home', controller: 'welcome' %>-->
+
+
+   <%= javascript_pack_tag 'test' %>

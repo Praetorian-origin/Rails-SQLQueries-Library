@@ -1,0 +1,37 @@
+<h1>List of Machines</h1>
+
+
+<div table="table_responsive">
+
+<table class="table">
+	<thead class="thead-light">
+		<tr>
+			<th>Name</th>
+			<th>Has databases: </th> 
+			<th>Hostname</th>
+			<th>Description</th>
+			<th></th>
+			<th>Options</th>
+			<th></th>
+		</tr>
+
+	</thead>
+	<% @machines.each do |machine| %>
+	<tr>
+		<th><%= machine.name %></th>
+		<th><%= machine.databases.map(&:name).join(', ') %></th>
+		<th><%= machine.hostname %></th>
+		<th><%= machine.description %></th>
+		<th></th>
+		<th><%= link_to 'Edit', edit_machine_path(machine), class: "btn btn-warning"%></th>
+		<th></th>
+	</tr>
+	<% end %>
+
+</table>
+</div>
+
+
+<div class="text-center">
+<%= link_to 'New Machine', new_machine_path, class: "btn btn-primary btn-lg ", role: "button" %>
+</div>

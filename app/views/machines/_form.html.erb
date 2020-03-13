@@ -1,0 +1,56 @@
+<%= form_with model: @machine, local: true do |form| %>
+ 
+  <% if @machine.errors.any? %>
+    <div id="error_explanation", class="alert alert-danger">
+      <h2>
+        <%= pluralize(@machine.errors.count, "error") %> prohibited
+        this query from being saved:
+      </h2>
+      <ul>
+        <% @machine.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: 'form-control' %>
+  </p>
+ 
+   <p>
+    <%= form.label :hostname %><br>
+    <%= form.text_field :hostname, class: 'form-control' %>
+  </p>
+ 
+
+  <p>
+    <%= form.label :user %><br>
+    <%= form.text_field :user, class: 'form-control' %>
+  </p>
+ 
+
+  <p>
+    <%= form.label :password %><br>
+    <%= form.password_field :passwd, class: 'form-control' %>
+  </p>
+ 
+
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_field :description, class: 'form-control' %>
+  </p>
+ 
+
+
+
+
+
+
+
+  <p>
+    <%= form.submit class: 'btn btn-success' %>
+  </p>
+ 
+<% end %>

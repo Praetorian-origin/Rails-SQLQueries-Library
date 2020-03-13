@@ -1,0 +1,10 @@
+<h1>Edit query</h1>
+ 
+<%= render 'form'%>
+ 
+
+<%= link_to 'Delete', query_path(@query),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+
+<%= link_to 'Back to all queries', queries_path, class: 'btn btn-secondary'%>
