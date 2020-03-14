@@ -5,3 +5,5 @@ When you save a query, it controls it's valid sql query for the machine and sche
 Note : you can't save queries that in its own perform its search on multiple schemas. The web server must run in a network that has access to the database ip adresses.
 
 Passwords for now are not encrypted when saving to database, they should be encrypted. 
+
+Made with Ruby On Rails Framework
