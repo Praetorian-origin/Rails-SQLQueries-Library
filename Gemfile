@@ -26,7 +26,7 @@ gem 'rubyzip', '~> 2.0', require: 'zip'
 # paginate
 gem 'will_paginate', '~> 3.2', '>= 3.2.1'
 # nokogiri
-gem 'nokogiri', '~> 1.10', '>= 1.10.7'
+gem 'nokogiri', '~> 1.10'
 # rubyXL
 gem 'rubyXL', '~> 3.4', '>= 3.4.9'
 #mini_portile2
