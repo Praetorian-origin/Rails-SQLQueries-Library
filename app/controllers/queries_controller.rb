@@ -25,29 +25,6 @@ class QueriesController < ApplicationController
   def launch_preview 
     
     
-  #  list_ope = [
-
-  #   '4516',
-  #   '5112',
-  #   '5361',
-  #   '5363',
-  #   '5378',
-  #   '5477',
-  #   '5478',
-  #   '5986',
-  #   '5987',
-  #   '5988',
-  #   '5989',
-  #   '5994'
-    
-
-  #  ]
-  #   cd = Abyla.new(list_ope)
-  #   cd.generate_excel_files
-
-
-
-    
     @query = Query.find(params[:id])
     @statement = @query.text
     @machines = @query.machines
